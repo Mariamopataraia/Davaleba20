@@ -174,3 +174,37 @@ function getUsers(){
     });
   }
   getUsers();
+
+//   Task 4 - 4. New User ღილაკზე დაჭერისას უნდა ამოვიდეს მოდალი სადაც იქნება ფორმი (ფორმი-მოდალში.png). Submit-ზე გაიგზავნოს სერვერზე ინფორმაცია
+async function addUser(userData){
+    const response = await fetch('http://api.kesho.me/v1/user-test/index/', {
+        method: 'post',
+        body: JSON.stringify(userData),
+        headers: {'Content-Type': 'application/json'}
+    });
+    const respData = await response.json();
+    console.log(respData);
+}
+function modal(modalId){
+    const modalWrapper = document.querySelector(modalId);
+    const modalContent = modalWrapper.querySelector('.modal-content');
+    const closeBtn = modalWrapper.querySelector('.close');
+    modalWrapper.style.display = 'block';   
+
+    modalWrapper.addEventListener('click', e => {
+        modalWrapper.style.display = 'none';
+    })
+
+    closeBtn.addEventListener('click', e => {
+        modalWrapper.style.display = 'none';  
+});
+}
+
+const modalButtons = document.querySelectorAll('[data-modal-target]');
+modalButtons.forEach((btn) => {
+    btn.addEventListener('click', e => {
+        modal(e.target.dataset.modalTarget);
+        console.log(e.target.dataset.modalTarget);
+    })
+});
+console.log(modalButtons);
