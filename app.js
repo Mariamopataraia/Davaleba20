@@ -185,10 +185,21 @@ async function addUser(userData){
     const respData = await response.json();
     console.log(respData);
 }
+async function addUser(userData){
+    const response = await fetch('http://api.kesho.me/v1/user-test/index/', {
+        method: 'post',
+        body: JSON.stringify(userData),
+        headers: {'Content-Type': 'application/json'}
+    });
+    const respData = await response.json();
+    console.log(respData);
+}
+
 function modal(modalId){
     const modalWrapper = document.querySelector(modalId);
     const modalContent = modalWrapper.querySelector('.modal-content');
     const closeBtn = modalWrapper.querySelector('.close');
+
     modalWrapper.style.display = 'block';   
 
     modalWrapper.addEventListener('click', e => {
