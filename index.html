@@ -8,23 +8,23 @@
     <title>Mariam Pataraia</title>
 </head>
 <body>
-    <div class="user-list">
+    <div class="user-list" id="users-server">
         <h1>User list</h1>
-        <table id="users">
+        <table class="table" id="users">
           <thead>
               <tr>
-                    <th>ID</th>
-                    <th>Email</th>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Gender</th>
-                    <th>Mobile</th>
-                    <th>Personal Number</th>
-                    <th>Zip code</th>
-                    <th>Actions (status)</th>
+                    <th id="ID">ID</th>
+                    <th id="Email">Email</th>
+                    <th id="First name">First name</th>
+                    <th id="Last name">Last name</th>
+                    <th id="Gender">Gender</th>
+                    <th id="Mobile">Mobile</th>
+                    <th id="Personal Number">Personal Number</th>
+                    <th id="Zip code">Zip code</th>
+                    <th id="Actions (status)">Actions (status)</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="data">
                 <tr>
                     <td>0</td>
                     <td>mariamopataraia@gmail.com</td>
@@ -35,7 +35,7 @@
                     <td>123456789</td>
                     <td>1111</td>
                     <td>active</td>
-                  </tr>
+                </tr>
             </tbody>
         </table>
         <div class="modal" id="simple-modal">
@@ -55,23 +55,47 @@
                         <div class="form-group">
                             <label>
                                 <span>Enter First Name</span>
+                                <input name="first_name" type="text" placeholder="Enter First Name">
+                            </label>
+                            <p class="form-error-message"></p>
                         </div>
                         <div class="form-group">
                             <label>
-                                <span>Enter Mobile number</span>
-                                <input name="mobile_number", placeholder="555226854 or +995555226854", id=numb, type="text" placeholder="Enter Mobile number">
+                                <span>Enter Last Name</span>
+                                <input name="last_name" type="text" placeholder="Enter Last Name">
                             </label>
                             <p class="form-error-message"></p>
                         </div>
                         <div class="form-group">
                             <label>
                                 <span>Enter Mobile number</span>
-                                <input name="mobile_number", placeholder="555226854 or +995555226854", id=numb, type="text" placeholder="Enter Mobile number">
+                                <input name="mobile_number", placeholder="5555110045 or +9957589641", id=numb, type="text" placeholder="Enter Mobile number">
+                            </label>
+                            <p class="form-error-message"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <span>Enter Personal number</span>
+                                <input name="mobile_number", placeholder="123456898", id=numb, type="text" placeholder="Enter Mobile number">
+                            </label>
+                            <p class="form-error-message"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>
                                 <span>Enter Zip Code</span>
                                 <input name="zip_code" type="text" placeholder="Enter Zip code">
                             </label>
                             <p class="form-error-message"></p>
                         </div>
+                        <div class="form-group">
+                            <label>
+                                <span>Select gender</span>
+                                <select name="gender">
+                                    <option value="">Choose gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">other</option>
+                                </select>
                             </label>
                             <p class="form-error-message"></p>
                         </div>
@@ -80,6 +104,7 @@
                 </div>
             </div>
         </div>
+        <button data-modal-target="#user-form-modal" id="simple-modal">New User</button>
         <button id="new-user">New User</button>
         <button id="edit-user">Edit</button>
         <button id="delete-user">Delete</button>
